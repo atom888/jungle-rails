@@ -10,4 +10,9 @@ class Product < ActiveRecord::Base
   validates :quantity, presence: true
   validates :category, presence: true
 
+  def sold_out?
+    # puts "this is a #{self.name} and it has #{self.quantity}, so its soldoutness is #{self.quantity==0}"
+    self.quantity == 0
+  end
+
 end
