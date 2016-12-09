@@ -1,0 +1,23 @@
+<pre>
+
+Welcome to example.com, <%= @user.email %>
+===============================================
+
+You have successfully signed up to example.com,
+your username is: <%= @user.first_name %>.
+
+Here is a list of all the items you ordered:
+
+Here are your items:
+<% @order.line_items.each do |line_item| %>
+<%= line_item %>
+<% end %>
+
+Total cost: <%= number_to_currency(@order.total_cents/100.00, :precision => 2) %>
+
+To login to the site, just follow this link: <%= @url %>.
+
+Thanks for joining and have a great day!
+
+
+</pre>
