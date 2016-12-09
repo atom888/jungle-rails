@@ -4,6 +4,11 @@
     <h1>My Cart</h1>
   </header>
 
+   <% if cart.blank? %>
+        <div class="jumbotron">There's nothing in your cart... maybe purchase something. Let's go back to <%= link_to "Home", root_path %> </div>
+      <% else %>
+
+
   <div class="panel panel-default items">
     <table class="table table-bordered">
       <thead>
@@ -14,12 +19,14 @@
           <th>Price</th>
         </tr>
       </thead>
+
       <tbody>
         <% @cart_total = 0 %>
         <% cart.each do |product_id, details| %>
           <%= render 'item', product_id: product_id, details: details %>
         <% end %>
       </tbody>
+
       <tfoot>
         <tr>
           <th colspan="4">
@@ -32,6 +39,7 @@
       </tfoot>
     </table>
   </div>
+
 
   <div class="row">
     <div class="col-xs-12">
@@ -49,5 +57,8 @@
       <% end %>
     </div>
   </div>
+
+
+  <% end %>
 
 </section>
