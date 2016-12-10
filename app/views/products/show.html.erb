@@ -25,6 +25,18 @@
         </dl>
       </div>
     </div>
+    <div class="row">
+      <h4>Write your review</h4>
+      <dl class="dl-horizontal">
+    <%= form_for ([@product, @review]) do |f| %>
+      <%= f.text_area :description %>
+      </dl>
+      <%= f.select :rating, [['horrible', 1], ['poor', 2], ['mediocre', 3], ['good', 4], ['great', 5]]
+ %>
+        <%= f.submit "Create" %>
+      <% end %>
+    </div>
+
 
     <div class="row">
       <h4>Review Section</h4>

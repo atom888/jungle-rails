@@ -3,8 +3,9 @@ Rails.application.routes.draw do
   resources :users
   root to: 'products#index'
 
+
   resources :products, only: [:index, :show] do
-    resources :review, only: [:create]
+    resources :reviews, only: [:create]
   end
 
   resources :categories, only: [:show]
