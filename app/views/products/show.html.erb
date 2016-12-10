@@ -26,6 +26,14 @@
       </div>
     </div>
 
+    <div class="row">
+      <h4>Review Section</h4>
+      <dl class="dl-horizontal">
+          <%= render partial: 'review', collection: @product.reviews %>
+      </dl>
+    </div>
+
+
   </article>
 
 </section>

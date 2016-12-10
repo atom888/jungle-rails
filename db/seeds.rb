@@ -21,9 +21,15 @@ end
 
 # Let's do this ...
 
-## Test User
+## USERS
 
-
+user1 = User.create!({
+    id: 12,
+    first_name: "Kanye",
+    last_name:   "West",
+    email: "the@greatest.com",
+    password: "me"
+  })
 
 ## CATEGORIES
 
@@ -39,7 +45,8 @@ puts "Re-creating Products ..."
 
 Product.destroy_all
 
-cat1.products.create!({
+
+prod1 = cat1.products.create!({
   name:  'Men\'s Classy shirt',
   description: Faker::Hipster.paragraph(4),
   image: open_asset('apparel1.jpg'),
@@ -135,6 +142,18 @@ cat3.products.create!({
   quantity: 23,
   price: 2_483.75
 })
+
+
+## REVIEWS
+
+review1 = prod1.reviews.create!({
+  user_id: 12,
+  description: "This was garbage",
+  rating: 5
+})
+
+
+
 
 
 puts "DONE!"
