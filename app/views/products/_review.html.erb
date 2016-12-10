@@ -17,3 +17,12 @@
       <%= review.rating %>
     </dd>
 
+    <dd>
+      <% if current_user && current_user.id == review.user_id %>
+          <div class="btn btn-default">
+            <%= link_to 'destroy', [review.product, review],
+               method: :delete,
+               data: { confirm: 'Are you sure?' } %>
+          </div>
+      <% end %>
+    </dd>
