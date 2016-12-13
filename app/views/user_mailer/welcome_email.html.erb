@@ -1,6 +1,6 @@
-<pre>
 
-Welcome to the JUNGLE,
+
+<h2>Welcome to the JUNGLE,</h2>
 ===============================================
 
 You have successfully signed up to the JUNGLE,
@@ -9,10 +9,11 @@ You have successfully signed up to the JUNGLE,
 Here is a list of all the items you ordered:
 
 Here are your items:
+<ul>
 <% @order.line_items.each do |line_item| %>
-<%= line_item %>
+<li><%= line_item %></li>
 <% end %>
-
+</ul>
 Total cost: <%= number_to_currency(@order.total_cents/100.00, :precision => 2) %>
 
 To login to the site, just follow this link: <%= @url %>.
@@ -20,4 +21,3 @@ To login to the site, just follow this link: <%= @url %>.
 Thanks for joining and have a great day!
 
 
-</pre>

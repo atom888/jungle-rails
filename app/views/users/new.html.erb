@@ -1,10 +1,10 @@
 <h1>Signup!</h1>
 
 <div class="signup-table">
+<%= form_for :user, url: '/users' do |f| %>
   <table class="table table-reflow">
     <thead>
         <tr>
-      <%= form_for :user, url: '/users' do |f| %>
           <td>
           First Name: <%= f.text_field :first_name %>
           </td>
@@ -40,9 +40,9 @@
           </td>
         </tr>
 
-      <% end %>
-    </thead>
 
+    </thead>
   </table>
+  <% end %>
 </div>
 
