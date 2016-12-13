@@ -11,7 +11,7 @@ class ReviewsController < ApplicationController
 
     if review.save
       puts "I saved"
-      redirect_to product_path(@product)
+      redirect_to product_path(product)
     else
       puts "save failed"
       redirect_to '/'

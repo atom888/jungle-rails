@@ -13,8 +13,15 @@ class Product < ActiveRecord::Base
   validates :category, presence: true
 
   def sold_out?
-    # puts "this is a #{self.name} and it has #{self.quantity}, so its soldoutness is #{self.quantity==0}"
     self.quantity == 0
+  end
+
+  def review?
+    reviews.count > 0
+  end
+
+  def average_review
+    reviews.inject(0) {|previous, review| review.rating + previous }.to_f / reviews.count
   end
 
 end
