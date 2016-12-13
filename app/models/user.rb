@@ -6,7 +6,8 @@ class User < ActiveRecord::Base
   validates :first_name, presence: true
   validates :last_name, presence: true
   validates :password, presence: true,
-            :confirmation =>true
+            :confirmation =>true,
+            length: { in: 3..20 }
   validates_confirmation_of :password
 
 

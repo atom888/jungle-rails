@@ -7,6 +7,8 @@ RSpec.describe User, type: :model do
       @correct_password = 'nice'
       @correct_password_confirm = 'nice'
       @incorrect_password = 'bad'
+      @short_password = 'a'
+      @short_password_confirm = 'a'
     end
 
 
@@ -40,12 +42,17 @@ RSpec.describe User, type: :model do
     expect(@user.errors[:last_name]).to include("can't be blank")
     end
 
-     it 'user is invalid if email is nil' do
-      @user = User.new(first_name: 'a', last_name: nil, email: nil, password: @correct_password, password_confirmation: @correct_password_confirm)
+    it 'user is invalid if email is nil' do
+      @user = User.new(first_name: 'a', last_name: 'b', email: nil, password: @correct_password, password_confirmation: @correct_password_confirm)
     expect(@user).to_not be_valid
     expect(@user.errors[:email]).to include("can't be blank")
     end
 
+    it 'user is invalid if password is not a particular length' do
+      @user = User.new(first_name: 'a', last_name: 'b', email: 'a@a.com', password: @short_password, password_confirmation: @short_password_confirm)
+    expect(@user).to_not be_valid
+    # expect(@user.errors[:email]).to include("[]")
+    end
 
 
   end
