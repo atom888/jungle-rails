@@ -14,6 +14,21 @@ class User < ActiveRecord::Base
   has_many :orders
   has_many :reviews
 
+  def self.clean_email(email)
+    email.strip.downcase if email.present?
+  end
+
+  def self.authenticate_with_credentials (email, password)
+    email_clean = self.clean_email(email)
+    user = self.find_by(email: email_clean)
+    if user && user.authenticate(password)
+      user
+    end
+  end
+
+
+
+
 end
 
 
