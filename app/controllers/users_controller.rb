@@ -11,7 +11,6 @@ class UsersController < ApplicationController
       # UserMailer.welcome_email(@user).deliver_later
       redirect_to '/'
     else
-      flash[:error] = 'An error occured!'
       redirect_to '/signup'
     end
   end
